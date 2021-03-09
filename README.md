@@ -83,7 +83,7 @@ title("2018", line = -0.5)
 
 We can plot a time serie with breakpoint and then we will detect changes.
 
-```{r,fig.align="center", fig.width=7.5, fig.height=5}
+```R
 ndfi_serie <- extract(ndfi_stack, cbind(377068.1248,-948511.3412))[1,] # extract with coordinates
 # Plot
 plot(ndfi_serie, pch = 20, xlab = "Index", ylab = "NDFI value", ylim = c(-1, 1.1))
@@ -94,7 +94,7 @@ Before detecting a breakpoint, it is necessary to apply a smoothing to remove ou
 
 If the idea is to detect changes in 2016 (position 16), then we will smooth the data only up to that position (i.e. ndfi[1:16]). This in order not to modify the value of the monitoring position.
 
-```{r,fig.align="center", fig.width=7.5, fig.height=5}
+```R
 ndfi_smooth <- ndfi_serie
 ndfi_smooth[1:16] <- smootH(ndfi_smooth[1:16])
 
@@ -117,7 +117,7 @@ Parameters:
 - **endm**: year of final monitoring, index 16 (i.e., also year 2016)
 - **threshold**: detection threshold (for NDFI series we will use 5). If you are using PV series, NDVI or EVI series you can use 5, 3 or 3 respectively. Please see [Tarazona et al. (2018)](https://www.sciencedirect.com/science/article/abs/pii/S1470160X18305326) for more details.
 
-```{r,fig.align="center", fig.width=7.5, fig.height=5}
+```R
 # Detect changes in 2016 (position 16)
 cd <- pvts(x = ndfi_smooth, startm = 16, endm = 16, threshold = 5)
 plot(cd, ylab = "NDFI")
@@ -129,12 +129,12 @@ So now we will detect changes using the **pvtsRaster ()** function. First, we ne
 
 Again, if the idea is to detect changes from 2008 (position 9) to 2018 (position 18), then we will smooth the data only up to that position (i.e. only until position 9). This in order not to modify the value of the monitoring position (position 18).
 
-```{r}
+```R
 # Raster to matrix
 ndfi_matrix <- as.matrix(ndfi_stack)
 dim(ndfi_matrix) # row*col, bands
 
-# Let´s check out if our data contain NAs
+# Let's check out if our data contain NAs
 any(is.na(ndfi_matrix))
 
 # Applying a smoothing
@@ -151,20 +151,20 @@ Parameters:
 - **endm**: year of final monitoring, index 18 (i.e., also year 2018)
 - **threshold**: detection threshold (for NDFI series we will use 5). If you are using PV series, NDVI or EVI series you can use 5, 3 or 3 respectively. Please see [Tarazona et al. (2018)](https://www.sciencedirect.com/science/article/abs/pii/S1470160X18305326) for more details.
 
-```{r}
+```R
 # Detecting changes with a Non-seasonal detection approach
 ndfiChanges <- pvtsRaster(x = ndfi_matrix, startm = 9, endm = 18,  threshold = 5)
 ```
 
 Finally, we can save this result in a raster data.
 
-```{r}
+```R
 rasterChanges <- raster(ndfi_stack)
 values(rasterChanges) <- ndfiChanges
 plot(rasterChanges)
 ```
 
-```{r, fig.align="center", fig.width=12, fig.height=6}
+```R
 rasterChanges[rasterChanges == 0] <- NA
 # Visualizamos la máscara en la imagen satelital
 par(mfrow = c(1,2), oma = c(0,1, 0, 2), bty = 'n')
