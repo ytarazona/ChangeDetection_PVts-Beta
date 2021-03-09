@@ -1,20 +1,6 @@
----
-title: 'Non-Seasonal Detection Approach (PVts-beta)'
-author: "Yonatan Tarazona Coronel"
-header-includes: #allows you to add in your own Latex packages
-- \usepackage{float} #use the 'float' package
-- \floatplacement{figure}{H} #make every figure with caption = h
-output:
-  html_document: default
-  pdf_document: 
-    fig_caption: yes
-    number_sections: yes
-    toc: yes
----
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
+# **Title**: 'Non-Seasonal Detection Approach (PVts-beta)'
+## **author**: "Yonatan Tarazona Coronel"
 
 ## Short description
 
