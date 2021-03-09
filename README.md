@@ -37,7 +37,7 @@ suppressMessages(library(raster))
 
 We will detect changes from 2008 to 2018. So that, we will visualize an image from 2008 and another from 2018 to see the changes in the forest.
 
-```{r, fig.align="center", fig.width=12, fig.height=6}
+```{r}
 path_file <- "I:/PaperSAR-Optico_Improved/CJRS/Review/Datasets/L8_232066_2000-2018_NDFI.tif"
 
 ndfi_stack <- stack(path_file) 
