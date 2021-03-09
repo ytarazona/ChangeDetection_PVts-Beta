@@ -170,7 +170,7 @@ rasterChanges <- raster(ndfi_stack)
 values(rasterChanges) <- ndfiChanges
 plot(rasterChanges)
 ```
-<img src="figures/000004.png" width = 90%/>
+<img src="figures/000004.png" width = 80%/>
 
 ```R
 rasterChanges[rasterChanges == 0] <- NA
@@ -181,4 +181,4 @@ title("NDFI 2018", line = -1)
 plot(rasterChanges, col = "black", cex.lab=0.5, cex.axis=0.3, cex.main=0.5, axes = FALSE)
 title("Change Detection - PVts-β", line = -1)
 ```
-<img src="figures/00009f.png" width = 90%/>
+<img src="figures/00009f.png" width = 100%/>
