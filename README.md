@@ -78,7 +78,6 @@ title("2008", line = -0.5)
 plot(ndfi_stack[[18]], col = colmap, axes = FALSE) # year 2018
 title("2018", line = -0.5)
 ```
-The output:
 
 <img src="figures/000051.jpg" width = 100%/>
 
@@ -92,9 +91,8 @@ ndfi_serie <- extract(ndfi_stack, cbind(377068.1248,-948511.3412))[1,] # extract
 plot(ndfi_serie, pch = 20, xlab = "Index", ylab = "NDFI value", ylim = c(-1, 1.1))
 lines(ndfi_serie, col = "gray45")
 ```
-The output:
 
-<img src="figures/00001a.png" width = 100%/>
+<img src="figures/00001a.png" width = 90%/>
 
 Before detecting a breakpoint, it is necessary to apply a smoothing to remove outliers. So, we'll use the **smootH** function from the **ForesToolboxRS** package. The mathematical approach of this method of removing outliers implies the non-modification of the first and last values of the historical series.
 
@@ -112,6 +110,8 @@ lines(ndfi_smooth, col = "blue", ylab = "NDFI value", xlab = "Time")
 points(ndfi_smooth, pch = 20, col = "blue")
 ```
 
+<img src="figures/000027.png" width = 90%/>
+
 To detect changes, either we can have a vector (using a specific index (position)) or a time series as input. We will detect changes using a vector. 
 
 Let's use the output of the *smootH* function (**ndfi_smooth**).
@@ -128,6 +128,7 @@ Parameters:
 cd <- pvts(x = ndfi_smooth, startm = 16, endm = 16, threshold = 5)
 plot(cd, ylab = "NDFI")
 ```
+<img src="figures/000003.png" width = 90%/>
 
 ### **Step4**
 
@@ -169,6 +170,7 @@ rasterChanges <- raster(ndfi_stack)
 values(rasterChanges) <- ndfiChanges
 plot(rasterChanges)
 ```
+<img src="figures/000004.png" width = 90%/>
 
 ```R
 rasterChanges[rasterChanges == 0] <- NA
@@ -179,4 +181,4 @@ title("NDFI 2018", line = -1)
 plot(rasterChanges, col = "black", cex.lab=0.5, cex.axis=0.3, cex.main=0.5, axes = FALSE)
 title("Change Detection - PVts-β", line = -1)
 ```
-
+<img src="figures/00009f.png" width = 90%/>
