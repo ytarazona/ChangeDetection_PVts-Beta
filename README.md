@@ -78,6 +78,9 @@ title("2008", line = -0.5)
 plot(ndfi_stack[[18]], col = colmap, axes = FALSE) # year 2018
 title("2018", line = -0.5)
 ```
+The output:
+
+<img src="figures/000051.jpg" width = 90%/>
 
 ### **Step3**
 
