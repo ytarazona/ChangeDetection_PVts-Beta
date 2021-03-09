@@ -80,7 +80,7 @@ title("2018", line = -0.5)
 ```
 The output:
 
-<img src="figures/000051.jpg" width = 100%/>
+<img src="figures/000051.png" width = 100%/>
 
 ### **Step3**
 
