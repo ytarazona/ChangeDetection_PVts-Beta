@@ -80,7 +80,7 @@ title("2018", line = -0.5)
 ```
 The output:
 
-<img src="figures/000051.png" width = 100%/>
+<img src="figures/000051.jpg" width = 100%/>
 
 ### **Step3**
 
@@ -92,6 +92,9 @@ ndfi_serie <- extract(ndfi_stack, cbind(377068.1248,-948511.3412))[1,] # extract
 plot(ndfi_serie, pch = 20, xlab = "Index", ylab = "NDFI value", ylim = c(-1, 1.1))
 lines(ndfi_serie, col = "gray45")
 ```
+The output:
+
+<img src="figures/00001a.png" width = 100%/>
 
 Before detecting a breakpoint, it is necessary to apply a smoothing to remove outliers. So, we'll use the **smootH** function from the **ForesToolboxRS** package. The mathematical approach of this method of removing outliers implies the non-modification of the first and last values of the historical series.
 
