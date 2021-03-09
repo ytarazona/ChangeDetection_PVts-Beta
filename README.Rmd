@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Short description
 
-In this document a non-seasonal detection approach ([PVts-beta](https://www.sciencedirect.com/science/article/abs/pii/S1470160X18305326)) is shown. We will demonstrate how to detect changes using a Photosynthetic Vegetation (PV) time series for the year X. In order to do it, we will use the ForesToolboxRS package with additional codes.
+In this document a non-seasonal detection approach ([PVts-β](https://www.sciencedirect.com/science/article/abs/pii/S1470160X18305326)) is shown. We will demonstrate how to detect changes using a Photosynthetic Vegetation (PV) time series for the year X. In order to do it, we will use the ForesToolboxRS package with additional codes.
 
 ## 1. Datasets
 We will use Normalized Difference Fraction Index (NDFI) to detect changes. This fractions were obtained from the Spectral Mixture Analysis physical model, see [Souza et al. (2005)](https://www.sciencedirect.com/science/article/abs/pii/S0034425705002385), through Landsat-5 TM and Landsat-8 OLI. To obtain NDFI we can use [ForesToolboxRS](https://github.com/ytarazona/ForesToolboxRS) or [forestools](https://github.com/ytarazona/forestools), although it is possible to obtain it using Google Earth Engine.
