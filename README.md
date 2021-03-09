@@ -1,6 +1,6 @@
 
-# **Title**: 'Non-Seasonal Detection Approach (PVts-beta)'
-## **author**: "Yonatan Tarazona Coronel"
+# Non-Seasonal Detection Approach (PVts-beta)
+## **Author**: Yonatan Tarazona Coronel
 
 ## Short description
 
